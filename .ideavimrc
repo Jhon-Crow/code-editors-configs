@@ -24,7 +24,10 @@ nnoremap <leader>/ :nohlsearch<CR>
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
 " Plugins
+packadd matchit
+set peekaboo
 Plug 'tpope/vim-surround'
+Plug 'vim-scripts/argtextobj.vim'
 
 " Highlight copied text
 "Plug "machakann/vim-highlihtedyank"
