@@ -46,11 +46,14 @@ nnoremap <Leader>P "+P
 " Бинд для открытия диалога замены в текущем файле
 nnoremap <Leader>r :action Replace<CR>
 
+" Маппинги для codeium плагина
+" ИИ Рефактор
+nnoremap <Leader>re vip :action com.codeium.intellij.editor_menu.RefactorSelection<CR>
+vnoremap <Leader>re :action com.codeium.intellij.editor_menu.RefactorSelection<CR>
 
-
-
-
-
+" ИИ Объяснение
+nnoremap <Leader>e vip :action com.codeium.intellij.editor_menu.ExplainSelection<CR>
+vnoremap <Leader>e :action com.codeium.intellij.editor_menu.ExplainSelection<CR>
 
 
 " Highlight copied text
@@ -68,7 +71,7 @@ nnoremap <Leader>r :action Replace<CR>
 
 
 " Основной вызов
-"map <leader>s :action AceAction<CR>
+map <leader>s :action AceAction<CR>
 
 " Выбор слова
 map <leader>f :action AceWordAction<CR>
