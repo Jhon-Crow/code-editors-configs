@@ -5,6 +5,11 @@
 
 " Назначение пробела лидером
 let mapleader = " "
+" Устанавливаем время ожидания ввода последовательности клавиш (в миллисекундах)
+set timeoutlen=2000
+" Включаем таймаут для mappings (рекомендуется)
+set timeout
+
 
 "" -- Suggested options --
 " Show a few lines of context around the cursor. Note that this makes the
@@ -32,8 +37,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/argtextobj.vim'
 
 "    Маппинги для работы с системным буфером обмена
-" Копирование в нормальном режиме (current line)
-nnoremap <Leader>y "+yy
+" Начать копирование в нормальном режиме
+nnoremap <Leader>y "+y
 " Копирование в визуальном режиме (selection)
 vnoremap <Leader>y "+y
 " Вставка в нормальном режиме
@@ -43,10 +48,19 @@ vnoremap <Leader>p "+p
 " Дополнительно: вставка перед курсором в нормальном режиме
 nnoremap <Leader>P "+P
 
-" Бинд для открытия диалога замены в текущем файле
+"    Маппинги для работы с именованным буфером "b"
+" Вызвать буфер "b"
+nnoremap <Leader>b "b
+" Вызвать буфер "b" в визуальном режиме
+vnoremap <Leader>b "b
+
+"   Маппинги для выполнения макроса из буфера 'm'
+nnoremap <Leader>m @m
+
+"   Бинд для открытия диалога замены в текущем файле
 nnoremap <Leader>r :action Replace<CR>
 
-" Маппинги для codeium плагина
+"   Маппинги для codeium плагина
 " ИИ Рефактор
 nnoremap <Leader>re vip :action com.codeium.intellij.editor_menu.RefactorSelection<CR>
 vnoremap <Leader>re :action com.codeium.intellij.editor_menu.RefactorSelection<CR>
@@ -54,6 +68,18 @@ vnoremap <Leader>re :action com.codeium.intellij.editor_menu.RefactorSelection<C
 " ИИ Объяснение
 nnoremap <Leader>e vip :action com.codeium.intellij.editor_menu.ExplainSelection<CR>
 vnoremap <Leader>e :action com.codeium.intellij.editor_menu.ExplainSelection<CR>
+
+"   Маппинги для Acejump
+" Основной вызов
+map <leader>s :action AceAction<CR>
+
+" Выбор слова
+map <leader>f :action AceWordAction<CR>
+
+" Выбор линии
+map <leader>l :action AceLineAction<CR>
+
+
 
 
 " Highlight copied text
@@ -70,11 +96,13 @@ vnoremap <Leader>e :action com.codeium.intellij.editor_menu.ExplainSelection<CR>
 "map \b <Action>(ToggleLineBreakpoint)
 
 
-" Основной вызов
-map <leader>s :action AceAction<CR>
-
-" Выбор слова
-map <leader>f :action AceWordAction<CR>
-
-" Выбор линии
-map <leader>l :action AceLineAction<CR>
+" Начать копирование в буфер "a"
+"nnoremap <Leader>ay "ay
+" Копирование выделенного текста в буфер "a"
+"vnoremap <Leader>ay "ay
+" Вставка из буфера "a" после курсора
+"nnoremap <Leader>ap "ap
+" Вставка из буфера "a" перед курсором
+"nnoremap <Leader>aP "aP
+" Вставка из буфера "a" с заменой выделения (визуальный режим)
+"vnoremap <Leader>ap "ap
